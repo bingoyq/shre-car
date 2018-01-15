@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.restful.mybatis.mapper.UserMapper">
+
+    <resultMap id="userMap" type="com.restful.mybatis.model.User">
+        <id property="id" column="id" javaType="java.lang.String"></id>
+        <result property="username" column="username" javaType="java.lang.String"></result>
+        <result property="password" column="password" javaType="java.lang.String"></result>
+    </resultMap>
+
+    <select id="findUserAll" resultMap="userMap">
+        select * from user
+    </select>
+
+    <select id="findUserById" resultMap="userMap">
+        select * from user where id = #{id}
+    </select>
+
+</mapper>
